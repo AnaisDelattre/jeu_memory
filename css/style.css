@@ -1,0 +1,152 @@
+/**
+* Fichier de mise en forme du jeu de mémoire
+*/
+
+*
+{
+    font-family: 'Jura', sans-serif;
+    font-size: 17px;
+}
+
+/* Zone contenant globalement tous nos éléments */
+#container 
+{
+    background-color: rgba(222, 173, 104, 0.7);
+    width: 50%;
+
+    position: absolute;
+    text-align: center;
+    /* On positionne le container au centre de l'écran */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#container div
+{
+    padding: 15px;   
+}
+
+#container div h1
+{
+    font-family: 'Krona One', sans-serif;
+    font-size: 20px;
+}
+
+/** ------------- ACCUEIL ------------- **/
+
+/* Affichage du bloc de présentation à gauche avec une largeur fixe */
+#bloc_presentation 
+{
+    float:left; 
+    width:50%; 
+}
+
+#btn_start
+{
+    /* Affichage du bouton en bas de la div */
+    margin-top: 5%;
+    
+    background-color: #dc9a3c;
+    border-radius: 10px;
+    padding: 7px;
+    
+}
+
+/* Affichage du bloc de scores */
+#bloc_scores 
+{ 
+    overflow:hidden;
+}
+
+#bloc_scores:after
+{ 
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 54%;
+    height: 100%;
+    border-left: 5px solid #dc9a3c;
+    transform: rotate( 8deg); 
+}
+
+/** ------------- JEU ------------- **/
+
+.game
+{
+    display: none; /* Par défaut notre zone de jeu est masquée */
+}
+
+/* Grille où nos cartes seront entreposées */
+#emplacements_cartes 
+{
+    background-color: rgba(222, 173, 104, 0.7);
+    width: 90%;
+    height: 90%; 
+
+    display: grid; /* Crée une grille qui va nous permettre d'y disposer nos cartes */
+    grid-template-columns: repeat(9, auto); /* Défini 9 colonnes en taille auto */
+    
+}
+
+/* Images des cartes */
+#emplacements_cartes > img 
+{
+    background-color: #dc9a3c;
+    width: 90%;
+}
+
+.dos_carte 
+{
+    border: 1px solid #b47c2e;
+        
+    cursor: pointer; /* Affiche un curseur quand on passe la souris sur les cartes */
+
+    transition: transform 0.7s; /* Durée de l'animation */
+    transform-style: preserve-3d;
+
+    /* Les lignes ci-dessous sont utilisées pour la compatibilité sur différents navigateurs */
+    -webkit-transition: -webkit-transform 0.7s;
+    -moz-transition: -moz-transform 0.7s;
+    -o-transition: -o-transform 0.7s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+}
+
+/* Bloc d'animation lorsque la carte de dos est retournée */
+.retourner_carte 
+{
+    background-color: white;
+    transition-delay: transform 0s; /* Commence dès 0 secondes */
+    /* Les trois lignes ci-dessous sont utilisées pour la compatibilité sur différents navigateurs */
+    -webkit-transition-delay: 0s; 
+    -moz-transition-delay: -moz-transform 0s;
+    -o-transition-delay: -o-transform 0s;
+    transform: rotateY(180deg); /* Retourne la carte à 180 degrés */ 
+}
+
+/* Bloc contenant le score et la barre du temps de jeu restant */
+#container_scores_temps
+{
+    display: none; /* Par défaut nos informations de jeu sont masquées */
+    width: 50%; 
+    text-align: center;
+    margin: auto;
+}
+
+/* Barre de temps de jeu restant */
+#barre_temps_restant 
+{
+    width: 90%;
+    height: 10px;
+    background: #dc9a3c; 
+    border: 2px solid #b47c2e;
+}
+
+#decompte_debut
+{
+    font-size: 15px;
+}
